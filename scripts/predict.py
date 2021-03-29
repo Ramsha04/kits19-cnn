@@ -1,4 +1,7 @@
-from catalyst.dl.runner import SupervisedRunner
+from catalyst.dl import SupervisedRunner
+
+import sys
+sys.path.append(".")
 
 from kits19cnn.inference import Predictor
 from kits19cnn.experiments import SegmentationInferenceExperiment, \
