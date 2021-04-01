@@ -1,7 +1,10 @@
 import torch
 
-from kits19_cnn.kits19cnn.models import Generic_UNet
-from kits19_cnn.kits19cnn.io import VoxelDataset, ClfSegVoxelDataset
+import sys
+sys.path.append(".")
+
+from kits19cnn.models import Generic_UNet
+from kits19cnn.io import VoxelDataset, ClfSegVoxelDataset
 
 from .train import TrainExperiment, TrainClfSegExperiment
 from .utils import get_preprocessing, get_training_augmentation, \
