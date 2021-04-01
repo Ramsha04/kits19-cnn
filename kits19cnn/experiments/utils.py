@@ -6,7 +6,10 @@ import batchgenerators.transforms as bg
 import torch
 from copy import deepcopy
 
-from kits19_cnn.kits19cnn.io import ROICropTransform, RepeatChannelsTransform, \
+import sys
+sys.path.append(".")
+
+from kits19cnn.io import ROICropTransform, RepeatChannelsTransform, \
                          MultiClassToBinaryTransform, RandomResizedCropTransform
 
 bgut = bg.utility_transforms
