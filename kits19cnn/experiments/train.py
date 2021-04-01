@@ -2,7 +2,7 @@ import os
 from glob import glob
 from abc import abstractmethod
 from pathlib import Path
-#import catalyst.dl.callbacks as callbacks
+import catalyst.dl as callbacks
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 import torch
