@@ -7,7 +7,7 @@ import nibabel as nib
 import numpy as np
 import json
 
-from kits19cnn.io.resample import resample_patient
+from kits19_cnn.kits19cnn.io.resample import resample_patient
 
 class Preprocessor(object):
     """
