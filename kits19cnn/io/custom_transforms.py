@@ -3,7 +3,7 @@ import math
 import random
 from batchgenerators.transforms import AbstractTransform
 
-from kits19cnn.io.custom_augmentations import foreground_crop, center_crop, \
+from kits19_cnn.kits19cnn.io.custom_augmentations import foreground_crop, center_crop, \
                                               random_resized_crop
 
 class RandomResizedCropTransform(AbstractTransform):
