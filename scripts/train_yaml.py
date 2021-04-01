@@ -47,10 +47,10 @@ def main(config):
                  scheduler=exp.lr_scheduler, loaders=exp.loaders,
                  callbacks=exp.cb_list, **config["runner_params"])
     # Not saving plots if plot_params not specified in config
-    if not config.get("plot_params"):
-        figs = plot_metrics(logdir=config["runner_params"]["logdir"],
-                            metrics=config["plot_params"]["metrics"])
-        save_figs(figs, save_dir=config["plot_params"]["save_dir"])
+    #if not config.get("plot_params"):
+     #   figs = plot_metrics(logdir=config["runner_params"]["logdir"],
+      #                      metrics=config["plot_params"]["metrics"])
+       # save_figs(figs, save_dir=config["plot_params"]["save_dir"])
 
 if __name__ == "__main__":
     import yaml
