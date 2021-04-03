@@ -7,9 +7,6 @@ import nibabel as nib
 import numpy as np
 import json
 
-import sys
-sys.path.append(".")
-
 from kits19cnn.io.resample import resample_patient
 
 class Preprocessor(object):
@@ -25,7 +22,7 @@ class Preprocessor(object):
     """
     def __init__(self, in_dir, out_dir, cases=None, kits_json_path=None,
                  target_spacing=(3.22, 1.62, 1.62),
-                 clip_values=None, with_mask=False, fg_classes=[1, 2]):
+                 clip_values=None, with_mask=True, fg_classes=[1, 2]):
         """
         Attributes:
             in_dir (str): directory with the input data. Should be the
@@ -98,7 +95,7 @@ class Preprocessor(object):
                 - preprocessed mask or None
         """
         raw_case = Path(case).name # raw case name, i.e. case_00000
-        if self.target_spacing is not None:    #  if self.kits_json is not None: (change)
+        if self.target_spacing is not None:
             for info_dict in self.kits_json:
                 # guaranteeing that the info is corresponding to the right
                 # case
