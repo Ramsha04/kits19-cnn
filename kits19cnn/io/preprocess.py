@@ -98,7 +98,7 @@ class Preprocessor(object):
                 - preprocessed mask or None
         """
         raw_case = Path(case).name # raw case name, i.e. case_00000
-        if self.target_spacing is not None:
+        if self.target_spacing is not None:    #  if self.kits_json is not None: (change)
             for info_dict in self.kits_json:
                 # guaranteeing that the info is corresponding to the right
                 # case
