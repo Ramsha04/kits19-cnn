@@ -22,7 +22,7 @@ class Preprocessor(object):
     """
     def __init__(self, in_dir, out_dir, cases=None, kits_json_path=None,
                  target_spacing=(3.22, 1.62, 1.62),
-                 clip_values=None, with_mask=False, fg_classes=[1, 2]):
+                 clip_values=None, with_mask=True, fg_classes=[1, 2]):
         """
         Attributes:
             in_dir (str): directory with the input data. Should be the
