@@ -22,7 +22,7 @@ class Preprocessor(object):
     """
     def __init__(self, in_dir, out_dir, cases=None, kits_json_path=None,
                  target_spacing=(3.22, 1.62, 1.62),
-                 clip_values=None, with_mask=True, fg_classes=[1, 2]):
+                 clip_values=[-30, 300], with_mask=True, fg_classes=[1, 2]):
         """
         Attributes:
             in_dir (str): directory with the input data. Should be the
@@ -44,10 +44,13 @@ class Preprocessor(object):
         self.out_dir = out_dir
 
         self._load_kits_json(kits_json_path)
+        self._load_bbox_json(bbox_json_path)
         self.clip_values = clip_values
-        self.target_spacing = np.array(target_spacing)
         self.with_mask = with_mask
         self.fg_classes = fg_classes
+        if not self.with_mask:
+            assert self.fg_classes is None, \
+                "When with_mask is False, fg_classes must be None."
         self.cases = cases
         # automatically collecting all of the case folder names
         if self.cases is None:
@@ -95,7 +98,7 @@ class Preprocessor(object):
                 - preprocessed mask or None
         """
         raw_case = Path(case).name # raw case name, i.e. case_00000
-        if self.target_spacing is not None:
+        if self.kits_json is not None:
             for info_dict in self.kits_json:
                 # guaranteeing that the info is corresponding to the right
                 # case
